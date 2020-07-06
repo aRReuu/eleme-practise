@@ -1,0 +1,92 @@
+#app
+{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body,div,span,header,footer,nav,section,aside,article,ul,dl,dd,li,a,p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption 
+{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    color: #333;
+    font-weight: normal;
+    font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
+    //width包含padding和border
+    box-sizing: border-box;
+    //TODO非标准特性
+    // -webkit-tap-highlight-color: transparent;
+    //字体抗锯齿渲染
+    // -webkit-font-smoothing: antialiased;
+    &:hover{
+        outline: none;
+    }
+}
+
+// #nav {
+//   padding: 30px;
+
+//   a {
+//     font-weight: bold;
+//     color: #2c3e50;
+
+//     &.router-link-exact-active {
+//       color: #42b983;
+//     }
+//   }
+// }
+
+//定义滚动条宽高以及背景  非标准定义
+::-webkit-scrollbar
+{
+    width: 0px;
+    height: 0px;
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    // -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0);  
+}
+
+//滑块
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #555;    
+}
+
+//兼容样式
+input[type="button"],input[type="submit"],input[type="search"], input[type="reset"]
+{
+    -webkit-appearance: none;
+}
+
+textarea
+{
+    -webkit-appearance: none;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+// .clear::after{
+//     content: '';
+//     display: block;
+//     clear: both;
+// }
+
+//非标准
+.clear{
+    zoom: 1;
+}
+
