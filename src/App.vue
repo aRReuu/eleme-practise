@@ -15,6 +15,7 @@ import { svgIcon } from "./components/common/svg";
 export default {
   components:{
     svgIcon
+    
   }
 }
 </script>
