@@ -1,25 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { routerMode } from "../config/env";
-import App from "../App";
+import { routerMode } from "../config/env"
+import App from "../App"
 
 Vue.use(VueRouter)
 
-const home = import('../page/home/home.vue','home');
-const city = import('../page/city/city.vue','city');
-const login = import('../page/login/login.vue','login');
-const forget = import('../page/forget/forget.vue','forget');
-const questionDetail = import('../page/service/children/questionDetail.vue','questionDetail');
-const service = import('../page/service/service.vue','service');
+const home = import(/* webpackChunkName:'home' */ '../page/home/home.vue')
+const city = import(/* webpackChunkName:'city' */ '../page/city/city.vue')
+const login = import(/* webpackChunkName:'login' */ '../page/login/login.vue')
+const forget = import(/* webpackChunkName:'forget' */ '../page/forget/forget.vue')
+const questionDetail = import(/* webpackChunkName:'service' */ '../page/service/children/questionDetail.vue')
+const service = import(/* webpackChunkName:'service' */ '../page/service/service.vue')
 
-const routes = [
-  {
+const routes = [{
     //Array<RouteConfig>   routes
     path: '/',
     //顶层路由器,对应index.html
     component: App,
     // name: 'Home',
-
     children:[
       //空地址跳转home页
       {
@@ -48,7 +46,7 @@ const routes = [
       },
       //服务中心
       {
-        path:'/service',
+        path: '/service',
         component:service,
         children:[{
           //订单详情页面
@@ -56,9 +54,8 @@ const routes = [
           component:questionDetail
         }]
       }
-    ]
-  },
-]
+    ],
+}]
 
 const router = new VueRouter({
   mode: routerMode,
