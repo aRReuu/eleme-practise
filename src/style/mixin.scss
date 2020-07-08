@@ -1,0 +1,74 @@
+/*
+    1.$声明变量符 作用域:块级
+        块级变全局 声明 !global
+    2.#{}插值
+        在属性或选择器中使用$变量
+        特殊: 避免执行运算表达式
+*/
+
+
+$blue:#3190e8;
+$bc:#e4e4e4;
+$fc:#ffffff;
+
+//背景图片大小
+@mixin bis($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin borderRadius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+//全屏
+@mixin allcover {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+//居中
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+//垂直居中
+@mixin ct {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+//水平居中
+@mixin cl {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+//宽高 
+@mixin xh($width,$height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin font($size,$line-height,$family:'Microsoft YaHei') {
+    font: #{$size}/#{$line-height} $family;
+}
+
+@mixin sc($size,$color) {
+    font-size: $size;
+    color: $color;
+}
+
+//设置flex流布局对齐方式
+@mixin flex-justify($type:space-between) {
+    display: flex;
+    justify-content: $type;
+}
