@@ -12,7 +12,7 @@ $bc:#e4e4e4;
 $fc:#ffffff;
 
 //背景图片大小
-@mixin bis($url) {
+@mixin bgimgsize($url) {
     background-image: url($url);
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -40,20 +40,20 @@ $fc:#ffffff;
     left: 50%;
     transform: translate(-50%,-50%);
 }
-//垂直居中
-@mixin ct {
+//垂直居中 ct
+@mixin vcenter {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 //水平居中
-@mixin cl {
+@mixin hcenter {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 //宽高 
-@mixin xh($width,$height) {
+@mixin wh($width,$height) {
     width: $width;
     height: $height;
 }
@@ -62,7 +62,7 @@ $fc:#ffffff;
     font: #{$size}/#{$line-height} $family;
 }
 
-@mixin sc($size,$color) {
+@mixin fontsc($size,$color) {
     font-size: $size;
     color: $color;
 }
