@@ -46,12 +46,13 @@ $fc:#ffffff;
     top: 50%;
     transform: translateY(-50%);
 }
-//水平居中
+//水平居中 cl
 @mixin hcenter {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
+
 //宽高 
 @mixin wh($width,$height) {
     width: $width;
@@ -62,12 +63,13 @@ $fc:#ffffff;
     font: #{$size}/#{$line-height} $family;
 }
 
+//sc
 @mixin fontsc($size,$color) {
     font-size: $size;
     color: $color;
 }
 
-//设置flex流布局对齐方式
+//设置flex流布局对齐方式   fj
 @mixin flex-justify($type:space-between) {
     display: flex;
     justify-content: $type;

@@ -4,12 +4,13 @@
 
 
 <script>
-//TODO  引用不需要详细路径?
 import { mapState,mapActions } from "vuex";
-//why?  @?
-// import { reactive } from "@vue/composition-api";
+import {  } from "module";
+
 export default {
-    
+    data(){
+        
+    },
 }
 </script>
 
