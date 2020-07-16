@@ -5,6 +5,8 @@ const cityUrl = "/v1/cities";//城市系列地址
 const searchPlaceUrl = "/v1/pois";//搜索地址
 const mSiteUrl = "/v2/pois/";//msite地址
 const mSiteFoodUrl = "/v2/index_entry";
+const mSiteShop = "/shopping/restaurants";//msite商铺列表
+const searchRestaurantUrl = "/v4/restaurants";
 /**
  * 获取首页默认地址
  */
@@ -70,6 +72,7 @@ export const mSiteFoodTypes = geohash =>{
 
 /**
  * mSite商铺列表
+ * TODO 为何带返回
  */
 export const shopList = (
         latitude,
@@ -78,7 +81,37 @@ export const shopList = (
         restaurant_category_id = "",
         order_by = "",
         delivery_mode = "",
-        support_ids = []
-    ) =>{
-    }
+        support_ids = [])
+    =>{
+        let supportStr = "";
+        support_ids.forEach(item=>{
+            if (item.status) {
+                supportStr += "$support_ids[]=" + item.id;
+            }
+        });
+        let data = {
+            latitude,
+            longitude,
+            offset,
+            limit:"20",
+            "extras[]":"activities",
+            keyword:"",
+            restaurant_category_id,
+            'restaurant_category_ids[]': restaurant_category_ids,
+		    order_by,
+		    'delivery_mode[]': delivery_mode + supportStr
+        };
+        return fetch(mSiteShop,data);
+    };
 
+/**
+ * 获取search页面搜搜结果
+ */
+export const searchRestaurant = (geohash,keyword)=>{
+    fetch(searchRestaurantUrl,{
+        'extras[]': 'restaurant_activity',
+	    geohash,
+	    keyword,
+	    type: 'search'
+    });
+};
