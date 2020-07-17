@@ -4,14 +4,14 @@ import { routerMode } from "../config/env"
 import App from "../App"
 
 Vue.use(VueRouter)
+const home = () => import(/* webpackChunkName:'home' */ '../page/home/home');
+const city = () => import(/* webpackChunkName:'city' */ '../page/city/city.vue');
+const login = () => import(/* webpackChunkName:'login' */ '../page/login/login.vue')
+const forget = () => import(/* webpackChunkName:'forget' */ '../page/forget/forget.vue')
+const questionDetail = () => import(/* webpackChunkName:'service' */ '../page/service/children/questionDetail.vue')
+const service = () => import(/* webpackChunkName:'service' */ '../page/service/service.vue')
 
-const home = import(/* webpackChunkName:'home' */ '../page/home/home.vue')
-const city = import(/* webpackChunkName:'city' */ '../page/city/city.vue')
-const login = import(/* webpackChunkName:'login' */ '../page/login/login.vue')
-const forget = import(/* webpackChunkName:'forget' */ '../page/forget/forget.vue')
-const questionDetail = import(/* webpackChunkName:'service' */ '../page/service/children/questionDetail.vue')
-const service = import(/* webpackChunkName:'service' */ '../page/service/service.vue')
-
+//Component属性
 const routes = [{
     //Array<RouteConfig>   routes
     path: '/',
@@ -31,7 +31,7 @@ const routes = [{
       },
       //选择城市页面
       {
-        path:'/citt/:cityid',
+        path:'/city/:cityid',
         component:city
       },
       //登录注册页

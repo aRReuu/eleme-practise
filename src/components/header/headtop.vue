@@ -2,19 +2,19 @@
     <header id="head_top">
         <slot name="logo"></slot>
         <slot name="search"></slot>
-        <section class="" v-if="goBack">
+        <section class="head_goback" v-if="goBack">
             <svg width="100%" height="100%">
                <polyline points="12,18 4,9 12,0" style="fill:none;stroke:rgb(255,255,255);stroke-width:2"/>
             </svg>
         </section>
         <!-- 个人信息简介 -->
-        <router-link v-bin:to="userInfo? '/profile':'login'" v-if="signinUp" class="">
+        <router-link v-bind:to="userInfo? '/profile':'login'" v-if="signinUp" class="">
             <svg class="user_avatar" v-if="userInfo">
-                <use xlink:href="#user">                
+                <use xlink:href="#user"/>                
             </svg>
             <span class="login_span" v-else>登录|注册</span>
         </router-link> 
-        <section class="" v-if="headTitlr">
+        <section class="" v-if="headTitle">
             <span class="title_text">{{headTitle}}</span>
         </section>
         <!-- 占位符 -->
@@ -27,7 +27,6 @@
 
 <script>
 import { mapState,mapActions } from "vuex";
-import { thistle } from 'color-name';
 
 export default {
     props:[
@@ -41,17 +40,17 @@ export default {
     },
     mounted(){
         //获取用户信息
-        this.getUserInfo();
+        // this.getUserInfo();
     },
     computed:{
         //拆分为多个计算属性
         ...mapState([
-            'useinfo'
+            'userInfo'
         ])
     },
     methods:{
         ...mapActions([
-            'getUserInfo'
+            // 'getUserInfo'
         ])
     }
 }
@@ -59,7 +58,7 @@ export default {
 
 
 <style lang="scss" scoped>
-@import '../../style/mixin.scss';
+    @import '../../style/mixin';
     #head_top{
         background-color: $blue;
         position: fixed;

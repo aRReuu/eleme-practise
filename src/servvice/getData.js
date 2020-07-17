@@ -11,7 +11,7 @@ const searchRestaurantUrl = "/v4/restaurants";
  * 获取首页默认地址
  */
 export const cityGuess = ()=>{
-    fetch(cityUrl,{
+    return fetch(cityUrl,{
         type:"guess"
     })
 };
@@ -20,7 +20,7 @@ export const cityGuess = ()=>{
  * 获取首页热门城市
  */
 export const hotCity = ()=>{
-    fetch(cityUrl,{
+    return fetch(cityUrl,{
         type:'hot'
     })
 };
@@ -29,7 +29,7 @@ export const hotCity = ()=>{
  * 获取首页所有城市
  */
 export const groupCity = ()=>{
-    fetch(cityUrl,{
+    return fetch(cityUrl,{
         type:'group'
     })
 };
@@ -81,8 +81,8 @@ export const shopList = (
         restaurant_category_id = "",
         order_by = "",
         delivery_mode = "",
-        support_ids = [])
-    =>{
+        support_ids = []
+    )=>{
         let supportStr = "";
         support_ids.forEach(item=>{
             if (item.status) {

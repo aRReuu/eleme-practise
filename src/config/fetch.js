@@ -1,5 +1,4 @@
 import { baseUrl } from "./env";
-import 'XMLHttpRequest';
 
 //TODO 方法API
 export default async(url='',data={},type='GET',method='fetch') =>{
@@ -26,7 +25,7 @@ export default async(url='',data={},type='GET',method='fetch') =>{
             credentials:"include",
             headers:{
                 "Accept":"application/json",
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
             },
             mode:"cors",
             cache:"force-cache"
@@ -63,7 +62,13 @@ export default async(url='',data={},type='GET',method='fetch') =>{
                 sendData = JSON.stringify(data);
             }
             requestObj.open(type,url,true);
-            requestObj.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            requestObj.setRequestHeader(
+                "Content-type",
+                "application/x-www-form-urlencoded",
+                //TODO暂时开启跨域请求
+                "Access-Control-Allow-Origin", "*",
+                "Access-Control-Allow-Credentials", true
+            );
             requestObj.send(data);
             requestObj.onreadystatechange = ()=>{
                 //readonly readyState: number;

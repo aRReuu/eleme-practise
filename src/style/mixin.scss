@@ -1,7 +1,7 @@
 /*
     1.$声明变量符 作用域:块级
         块级变全局 声明 !global
-    2.#{}插值
+    2.插值
         在属性或选择器中使用$变量
         特殊: 避免执行运算表达式
 */
@@ -60,7 +60,7 @@ $fc:#ffffff;
 }
 
 @mixin font($size,$line-height,$family:'Microsoft YaHei') {
-    font: #{$size}/#{$line-height} $family;
+    font: #{$size}/#{$line-height}  $family;
 }
 
 //sc

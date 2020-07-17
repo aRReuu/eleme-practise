@@ -3,7 +3,8 @@
  */
 
 //域名地址
-let baseUrl = '';
+// let baseUrl = '';
+let baseUrl = 'https://elm.cangdu.org';
 //路由模式
 let routerMode = 'hash';
 //图片所在域名地址
@@ -13,7 +14,7 @@ let imgBaseUrl = '';
 if (process.env.NODE_ENV == 'development') {
     imgBaseUrl = '/img/';
 } else if(process.env.NODE_ENV == 'production'){
-    // baseUrl = '//elm.cangdu.org';
+    baseUrl = '//elm.cangdu.org';
 } else{
 }
 
