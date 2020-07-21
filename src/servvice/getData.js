@@ -38,7 +38,7 @@ export const groupCity = ()=>{
  * 获取当前城市
  */
 export const currentCity = number =>{
-    fetch(cityUrl + number);
+   return fetch(cityUrl + number);
 };
 
 /**

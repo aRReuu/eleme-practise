@@ -31,7 +31,7 @@ const routes = [{
       },
       //选择城市页面
       {
-        path:'/city/:cityid',
+        path:'/city/:cityId',
         component:city
       },
       //登录注册页

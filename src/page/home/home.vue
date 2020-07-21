@@ -29,8 +29,8 @@
        <section class="group_city_container">
             <ul class="letter_classify">
                 <li v-for="(value, key, index) in sortGroupCity" :key="key"  class="letter_classify_li">
-                    <h4 class="city_title">{{key}}
-                        <span v-if="index == 0">（按字母排序）</span>
+                    <h4 class="city_title">
+                           {{key}}<span v-if="index == 0">（按字母排序）</span>
                     </h4>
                     <ul class="groupcity_name_container citylistul clear">
                         <router-link  tag="li" v-for="item in value" :to="'/city/' + item.id" :key="item.id" class="ellipsis">
@@ -91,6 +91,7 @@ export default {
     },
     //MapObject
     methods:{
+        //es6可省略function
         reloadPage() {
             window.location.reload(true);
         }
@@ -150,7 +151,6 @@ export default {
         background-color: #fff;
         margin-bottom: 0.4rem;
     }
-
     .citylistul{
         li{
             float: left;
@@ -158,25 +158,25 @@ export default {
             color: $blue;
             border-bottom: 0.025rem solid $bc;
             border-right: 0.025rem solid $bc;
-            @include wh(25%,1.75rem);
-            @include font(0.6rem,1.75);
+            @include wh(25%, 1.75rem);
+            @include font(0.6rem, 1.75rem);
         }
+        //最右隐藏分界线
         li:nth-of-type(4n){
-            border-right:none;
+            border-right: none;
         }
     }
-
     .city_title{
         color: #666;
         font-weight: 400;
         text-indent: 0.45rem;
         border-top: 2px solid $bc;
         border-bottom: 1px solid $bc;
-        @include font(0.55rem,1.45rem,"Helvetica Neue");
+        @include font(0.55rem, 1.45rem, "Helvetica Neue");
         span{
-            @include fontsc(0.475rem,#999);
+            @include fontsc(0.475rem, #999);
         }
-    } 
+    }
 
     .letter_classify_li{
         margin-bottom: 0.4rem;

@@ -79,14 +79,60 @@ html,body{
     background-color: #f5f5f5;
 }
 
-// .clear::after{
-//     content: '';
-//     display: block;
-//     clear: both;
-// }
+// TODO 伪元素构造器 插入的元素为匿名,可替换的
+.clear::after{
+    content: '';
+    display: block;
+    //指定元素移动到浮动元素的下面
+    clear: both;
+}
 
 //非标准
 .clear{
     zoom: 1;
 }
 
+.back_img{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.margin{
+    //上下0 水平居中,老版本适配
+    margin:0 auto;
+}
+
+//将元素移动至左边临近的float布局标签下面
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.paddingTop{
+    padding-top: 1.95rem;
+}
+
+//TODO 
+@keyframes backOpacity{
+    0% {opacity: 1}
+    25% {opacity: .5}
+    50% {opacity: 1}
+    75% {opacity: .5}
+    100% {opacity: 1}
+}
+
+// .animation_

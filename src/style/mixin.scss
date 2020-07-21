@@ -73,4 +73,5 @@ $fc:#ffffff;
 @mixin flex-justify($type:space-between) {
     display: flex;
     justify-content: $type;
+    // flex-direction: $direction;
 }

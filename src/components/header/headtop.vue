@@ -8,7 +8,7 @@
             </svg>
         </section>
         <!-- 个人信息简介 -->
-        <router-link v-bind:to="userInfo? '/profile':'login'" v-if="signinUp" class="">
+        <router-link v-bind:to="userInfo? '/profile':'login'" v-if="signinUp" class="head_login">
             <svg class="user_avatar" v-if="userInfo">
                 <use xlink:href="#user"/>                
             </svg>
@@ -20,6 +20,7 @@
         <!-- 占位符 -->
         <slot name="edit"></slot>
         <slot name="msite-title"></slot>
+        <!-- 先初始化占位符 再通过其他控件用特征调用对应的名字 -->
         <slot name="changecity"></slot>
         <slot name="changeLogin"></slot>
     </header>
@@ -62,6 +63,7 @@ export default {
     #head_top{
         background-color: $blue;
         position: fixed;
+        // position: sticky;
         z-index: 100;
         left: 0;
         top: 0;
@@ -78,6 +80,7 @@ export default {
         @include fontsc(0.65rem, #fff);
         @include vcenter;
         .login_span{
+            margin-right: 0.55rem;
             color: #fff;
         }
         .user_avatar{
