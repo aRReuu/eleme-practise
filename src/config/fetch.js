@@ -22,7 +22,8 @@ export default async(url='',data={},type='GET',method='fetch') =>{
     if (window.fetch && "fetch" == method) {
         let requetsConfig = {
             method:type,
-            credentials:"include",
+            //TODO 共享cookies?
+            // credentials:"include",
             headers:{
                 "Accept":"application/json",
                 "Content-Type":"application/json",
@@ -63,11 +64,10 @@ export default async(url='',data={},type='GET',method='fetch') =>{
             }
             requestObj.open(type,url,true);
             requestObj.setRequestHeader(
-                "Content-type",
-                "application/x-www-form-urlencoded",
+                "Content-type","application/x-www-form-urlencoded",
                 //TODO暂时开启跨域请求
-                "Access-Control-Allow-Origin", "*",
-                "Access-Control-Allow-Credentials", true
+                // "Access-Control-Allow-Origin", "*",
+                // "Access-Control-Allow-Credentials", true
             );
             requestObj.send(data);
             requestObj.onreadystatechange = ()=>{

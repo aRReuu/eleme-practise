@@ -14,7 +14,7 @@
             </svg>
             <span class="login_span" v-else>登录|注册</span>
         </router-link> 
-        <section class="" v-if="headTitle">
+        <section class="title_head" v-if="headTitle">
             <span class="title_text">{{headTitle}}</span>
         </section>
         <!-- 占位符 -->

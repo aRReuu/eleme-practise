@@ -1,7 +1,7 @@
 import fetch from "../config/fetch";
 import { getStore } from "../config/mUtils";
 
-const cityUrl = "/v1/cities";//城市系列地址
+const cityUrl = "/v1/cities/";//城市系列地址
 const searchPlaceUrl = "/v1/pois";//搜索地址
 const mSiteUrl = "/v2/pois/";//msite地址
 const mSiteFoodUrl = "/v2/index_entry";
@@ -45,10 +45,10 @@ export const currentCity = number =>{
  * 获取搜索地址
  */
 export const searchPlace = (cityId,value)=>{
-    fetch(searchPlaceUrl,{
-        type:"search",
-        city_id:cityId,
-        ketword:value
+     return fetch(searchPlaceUrl,{
+        "type":"search",
+        "city_id":cityId,
+        "keyword":value
     })
 };
 
