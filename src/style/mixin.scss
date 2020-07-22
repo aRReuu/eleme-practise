@@ -47,6 +47,7 @@ $fc:#ffffff;
     transform: translateY(-50%);
 }
 //水平居中 cl
+//TODO 位置属性是否一定为相对? 绝对也是生效
 @mixin hcenter {
     position: absolute;
     left: 50%;
