@@ -115,3 +115,22 @@ export const searchRestaurant = (geohash,keyword)=>{
 	    type: 'search'
     });
 };
+
+// ===================================== 登录页面 =========================================
+
+/**
+ * 获取图片验证码
+ */
+export const getCaptchaCode = () => {
+    return fetch('/v1/captchas', {},'POST');
+}
+/**
+ * 账号密码登录
+ */
+export const accountLogin = (username, password, captcha_code) => {
+    return fetch('/v2/login', {
+        username,
+        password, 
+        captcha_code
+    }, 'POST');
+}
