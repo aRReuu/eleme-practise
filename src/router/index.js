@@ -10,6 +10,7 @@ const login = () => import(/* webpackChunkName:'login' */ '../page/login/login.v
 const forget = () => import(/* webpackChunkName:'forget' */ '../page/forget/forget.vue')
 const questionDetail = () => import(/* webpackChunkName:'service' */ '../page/service/children/questionDetail.vue')
 const service = () => import(/* webpackChunkName:'service' */ '../page/service/service.vue')
+const msite = () => import(/* webpackChunkName:'msite' */ '../page/msite/msite.vue')
 
 //Component属性
 const routes = [{
@@ -43,6 +44,12 @@ const routes = [{
       {
         path:'/forget',
         component:forget
+      },
+      //主页
+      {
+        path:'/msite',
+        component:msite,
+        meta:{keepAlive:'true'}
       },
       //服务中心
       {

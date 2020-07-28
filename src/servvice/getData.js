@@ -134,3 +134,11 @@ export const accountLogin = (username, password, captcha_code) => {
         captcha_code
     }, 'POST');
 }
+
+export const getFoodtypes = (geohash) => { 
+    return fetch('/v2/index_entry',{
+        geohash,
+        group_type: '1',
+	    'flags[]': 'F'
+    });
+}

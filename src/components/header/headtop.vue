@@ -19,10 +19,10 @@
         </section>
         <!-- 占位符 -->
         <slot name="edit"></slot>
-        <slot name="msite-title"></slot>
+        <slot name="msite_title"></slot>
         <!-- 先初始化占位符 再通过其他控件用特征调用对应的名字 -->
-        <slot name="changecity"></slot>
-        <slot name="changeLogin"></slot>
+        <slot name="change_city"></slot>
+        <slot name="change_login"></slot>
     </header>
 </template>
 
@@ -67,7 +67,7 @@ export default {
         z-index: 100;
         left: 0;
         top: 0;
-        @include wh(100%,1.95rem);
+        @include wh(100%,2.1rem);
     }
     .head_goback{
         left:0.4rem;

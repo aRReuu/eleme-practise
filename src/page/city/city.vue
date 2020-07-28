@@ -2,7 +2,7 @@
     <div>
         <head-top v-bind:head-title="cityName" go-back="true">
             <!-- TODO 只能通过插槽显示? -->
-            <router-link to="/home" slot="changecity" class="change_city">切换城市</router-link>
+            <router-link to="/home" slot="change_city" class="change_city">切换城市</router-link>
         </head-top>
         <form action="" class="city_form" v-on:submit.prevent >
             <!-- <h5>TODO! .preven事件拦截符,对应默认的passive</h5> -->
