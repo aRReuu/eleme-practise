@@ -62,13 +62,13 @@ export const msiteAdress = geohash =>{
 /**
  * msite食品分类列表
  */
-export const mSiteFoodTypes = geohash =>{
-    fetch(mSiteFoodTypes,{
+export const getFoodtypes = (geohash) => { 
+    return fetch('/v2/index_entry',{
         geohash,
-        group_type:"1",
-        "flags[]":"F"
-    })
-};
+        group_type: '1',
+	    'flags[]': 'F'
+    });
+}
 
 /**
  * mSite商铺列表
@@ -133,12 +133,4 @@ export const accountLogin = (username, password, captcha_code) => {
         password, 
         captcha_code
     }, 'POST');
-}
-
-export const getFoodtypes = (geohash) => { 
-    return fetch('/v2/index_entry',{
-        geohash,
-        group_type: '1',
-	    'flags[]': 'F'
-    });
 }

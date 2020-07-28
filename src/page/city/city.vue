@@ -16,7 +16,7 @@
         <!-- 搜索历史 -->
         <div>
             <h5 class="history" v-if="historyTittle">搜索历史</h5>
-            <ul class="ul_style" v-for="(item,index) in placeList" v-bind:key="index" @click="(item)">
+            <ul class="ul_style" v-for="(item,index) in placeList" v-bind:key="index" @click="saveAndPushPage(item)">
                 <li>        
                     <span class="ellipsis">{{item.name}}</span>  
                     <span class="ellipsis">{{item.address}}</span>
@@ -87,6 +87,7 @@ export default {
          * 点击地址保存并且跳转
          */
         saveAndPushPage(item){
+            console.log(item);
             let history = getStore(this.historyKey);
             if (!history) {
                 this.placeHistory.push(item);
@@ -106,8 +107,8 @@ export default {
             setStore(this.historyKey,this.placeHistory);
             //最后跳转
             this.$router.push({
-                "path":"/miste",
-                "query":{geohash}
+                "path":"/msite",
+                "query":{geohash:item.geohash}
             });
         },
 
