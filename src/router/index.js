@@ -60,7 +60,10 @@ const routes = [{
           path:'questionDetail',
           component:questionDetail
         }]
-      }
+      },
+      // {
+      //   path:'/shoplist'
+      // }
     ],
 }]
 

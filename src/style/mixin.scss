@@ -70,7 +70,7 @@ $fc:#ffffff;
     color: $color;
 }
 
-//设置flex流布局对齐方式   fj
+//设置flex流布局对齐方式 fj
 @mixin flex-justify($type:space-between) {
     display: flex;
     justify-content: $type;
