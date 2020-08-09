@@ -10,7 +10,6 @@
 $blue:#3190e8;
 $bc:#e4e4e4;
 $fc:#ffffff;
-
 //背景图片大小
 @mixin bgimgsize($url) {
     background-image: url($url);

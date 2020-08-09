@@ -8,10 +8,10 @@
                 <span>{{msiteTitle}}</span>
             </router-link>
         </head-top>
-        <!-- 头部视图 TODO 在这 nav标签是否一定要加 -->
-        <div v-if="foodTypes.length > 0" class="container_style" v-swiper:mySwiper="swiperOption">
-                <div class="swiper-wrapper">
-                    <div class="head_scroll_view swiper-slide"
+
+        <div v-if="foodTypes.length > 0" class="container_style">
+                <swiper class="swiper-wrapper">
+                    <swiper-slide class="head_scroll_view"
                          v-for="(foods, index) in foodTypes" 
                          :key="index">
                         <router-link 
@@ -25,25 +25,31 @@
                                 <figcaption>{{food.title}}</figcaption>
                             </figure>
                         </router-link>
-                        <div class="swiper-pagination"></div>
-                    </div>        
-                </div>
+                    </swiper-slide>   
+                    <div class="swiper-pagination" slot="pagination"></div>     
+            </swiper>
         </div>
+    
+        <shop-list></shop-list>        
+        <foot-guide></foot-guide>
 
-        <shop-list>
 
-        </shop-list>
+        <!-- <transition name="loading">
+            <loading v-show="isLoading"></loading>
+        </transition> -->
     </div>
 </template>
 
 
 <script>
-import headTop from "../../components/header/headtop"
+import HeadTop from "../../components/header/headtop"
 import { getFoodtypes } from "../../servvice/getData.js"
-import {Swiper,SwiperSlide} from 'vue-awesome-swiper'
+import {Swiper,SwiperSlide,directive} from 'vue-awesome-swiper'
 // import "swiper/css/swiper.css"; //6.0higher deprecate
 import "swiper/swiper-bundle.css"
-import shopList from "../../components/common/shopList"
+import ShopList from "../../components/common/shopList"
+import Loading from "../../components/common/loading"
+import FootGuide from "../../components/common/footGuide"
 
 export default {
     data(){
@@ -97,8 +103,16 @@ export default {
     },
 
     components:{
-        headTop,
-        shopList,
+        HeadTop,
+        ShopList,
+        Loading,
+        FootGuide,
+        Swiper,
+        SwiperSlide
+    },
+    // TODO 深入理解
+    directives:{
+        swiper:directive
     },
 
     methods:{
@@ -127,20 +141,17 @@ export default {
 .container_style{
     margin-top: 2.7rem;
     text-align: center;
-    height: 150px;
-
-    .swiper-wrapper{
-        .head_scroll_view{
+    position: relative;
+    .head_scroll_view{
+            position: relative;
             background-color: white;
-            // @include wh(100%,130px);
             display: flex;
-            flex-direction: row;
-            justify-content: center;
             //TODO 没设置的时候,所有子控件默认不转行,集中在一行/列中
             flex-wrap: wrap;
             .food_style{
                 @include wh(25%,50%);
                 figure{
+                    margin-top: .5rem;
                     @include wh(100%,100%);
                     figcaption{
                         @include fontsc(.5rem, #999999);
@@ -151,12 +162,10 @@ export default {
                     }
                 }
             }
-        }
-        .swiper-pagination{
-            @include wh(100%,15px);
-            bottom: 0;
-            // background-color:bisque;
-        }
+    }
+    .swiper-pagination{
+        @include wh(100%,15px);
+        bottom: 0;
     }
 }
 
