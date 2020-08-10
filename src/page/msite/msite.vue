@@ -110,7 +110,7 @@ export default {
         Swiper,
         SwiperSlide
     },
-    // TODO 深入理解
+    // TODO !!! 深入理解 滚动控件
     directives:{
         swiper:directive
     },

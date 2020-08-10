@@ -17,13 +17,16 @@ body,div,span,header,footer,nav,section,aside,article,ul,dl,dd,li,a,p, h1, h2, h
     font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
     //width包含padding和border
     box-sizing: border-box;
-    //TODO非标准特性
-    // -webkit-tap-highlight-color: transparent;
     //字体抗锯齿渲染
     // -webkit-font-smoothing: antialiased;
     &:hover{
         outline: none;
     }
+    &:link{
+        //TODO非标准特性
+        -webkit-tap-highlight-color: transparent;
+    }
+    
 }
 
 // #nav {
@@ -38,6 +41,7 @@ body,div,span,header,footer,nav,section,aside,article,ul,dl,dd,li,a,p, h1, h2, h
 //     }
 //   }
 // }
+
 
 //定义滚动条宽高以及背景  非标准定义
 ::-webkit-scrollbar
