@@ -22,26 +22,12 @@ body,div,span,header,footer,nav,section,aside,article,ul,dl,dd,li,a,p, h1, h2, h
     &:hover{
         outline: none;
     }
-    &:link{
+    &:active{
         //TODO非标准特性
         -webkit-tap-highlight-color: transparent;
     }
     
 }
-
-// #nav {
-//   padding: 30px;
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
-
 
 //定义滚动条宽高以及背景  非标准定义
 ::-webkit-scrollbar

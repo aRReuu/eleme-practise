@@ -20,25 +20,25 @@
             </defs>
         </svg>
         <div class="tabbar-items">
-            <router-link to="" class="link-item">
+            <router-link :to="{path:'/msite',query:{geohash}}" class="link-item">
                 <svg class="item-icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.includes('msite')== true ? '#msiteActive' : '#msite'"></use>
                 </svg>
                 <p>外卖</p>
             </router-link>
-            <router-link to="" class="link-item">
+            <router-link :to="`search/${geohash}`" class="link-item">
                 <svg class="item-icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.includes('find')== true ? '#findActive' : '#find'"></use>
                 </svg>
                 <p>搜索</p>
             </router-link>
-            <router-link to="" class="link-item">
+            <router-link to="/order" class="link-item">
                 <svg class="item-icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.includes('order')== true ? '#orderActive' : '#order'"></use>
                 </svg>
                 <p>订单</p>
             </router-link>
-            <router-link to="" class="link-item">
+            <router-link to="/profile" class="link-item">
                 <svg class="item-icon">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.includes('profile')== true ? '#profileActive' : '#profile'"></use>
                 </svg>
@@ -50,8 +50,23 @@
 
 
 <script>
+import { mapState } from "vuex";
+
 export default {
-    
+
+    computed:{
+        // TODO EL表达式
+        ...mapState([
+            'geohash'
+        ])
+    },
+
+    methods:{
+        //跳转
+        pushtoLinkAdress(){
+
+        }
+    }
 }
 </script>
 
