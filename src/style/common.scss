@@ -29,6 +29,17 @@ body,div,span,header,footer,nav,section,aside,article,ul,dl,dd,li,a,p, h1, h2, h
     
 }
 
+//全网页黑白
+// html,body{
+//  filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+// 	-webkit-filter: grayscale(100%);
+// 	-moz-filter: grayscale(100%);
+// 	-ms-filter: grayscale(100%);
+// 	-o-filter: grayscale(100%);
+// 	filter: grayscale(100%);
+// 	filter: gray;
+// }
+
 //定义滚动条宽高以及背景  非标准定义
 ::-webkit-scrollbar
 {

@@ -11,6 +11,7 @@ const forget = () => import(/* webpackChunkName:'forget' */ '../page/forget/forg
 const questionDetail = () => import(/* webpackChunkName:'service' */ '../page/service/children/questionDetail.vue')
 const service = () => import(/* webpackChunkName:'service' */ '../page/service/service.vue')
 const msite = () => import(/* webpackChunkName:'msite' */ '../page/msite/msite.vue')
+const search = () => import(/* webpackChunkName:'search' */ "../page/search/search.vue")
 
 //Component属性
 const routes = [{
@@ -61,9 +62,10 @@ const routes = [{
           component:questionDetail
         }]
       },
-      // {
-      //   path:'/shoplist'
-      // }
+      {
+        path:"/search/:geohash",
+        component:search
+      },      
     ],
 }]
 
