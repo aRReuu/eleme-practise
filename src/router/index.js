@@ -12,6 +12,8 @@ const questionDetail = () => import(/* webpackChunkName:'service' */ '../page/se
 const service = () => import(/* webpackChunkName:'service' */ '../page/service/service.vue')
 const msite = () => import(/* webpackChunkName:'msite' */ '../page/msite/msite.vue')
 const search = () => import(/* webpackChunkName:'search' */ "../page/search/search.vue")
+const order = () => import(/* webpackChunkName:'order' */ "../page/order/order.vue")
+const profile = () => import(/* webpackChunkName:'profile' */ "../page/profile/profile.vue")
 
 //Component属性
 const routes = [{
@@ -66,6 +68,15 @@ const routes = [{
         path:"/search/:geohash",
         component:search
       },      
+      {
+        path:"/order",
+        component:order
+      },
+      {
+        path:"/profile",
+        component:profile
+      }
+
     ],
 }]
 
