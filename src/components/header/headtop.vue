@@ -63,18 +63,19 @@ export default {
     #head_top{
         background-color: $blue;
         position: fixed;
-        // position: sticky;
         z-index: 100;
         left: 0;
         top: 0;
         @include wh(100%,2.1rem);
+        .head_goback{
+            position: absolute;
+            @include wh(0.6rem,1rem);
+            margin-left: .5rem;
+            transform: translateY(-50%);
+            top: 50%;
+        }
     }
-    .head_goback{
-        left:0.4rem;
-        @include wh(0.6rem,1rem);
-        line-height: 2.2rem;
-        margin-left: .4rem;
-    }
+    
     .head_login{
         right:0.55rem;
         @include fontsc(0.65rem, #fff);

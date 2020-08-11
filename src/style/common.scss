@@ -136,6 +136,9 @@ html,body{
   opacity: 0.2;  
 }
 
+.bar-top{
+    margin-top: 2.1rem;
+}
 
 //TODO 
 @keyframes backOpacity{
@@ -145,5 +148,3 @@ html,body{
     75% {opacity: .5}
     100% {opacity: 1}
 }
-
-// .animation_

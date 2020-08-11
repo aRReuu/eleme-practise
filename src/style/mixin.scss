@@ -6,10 +6,15 @@
         特殊: 避免执行运算表达式
 */
 
-
+//全局蓝
 $blue:#3190e8;
+//边框颜色
 $bc:#e4e4e4;
+//纯底色
 $fc:#ffffff;
+// 输入框背景色
+$ic:#f2f2f2;
+
 //背景图片大小
 @mixin bgimgsize($url) {
     background-image: url($url);
