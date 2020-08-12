@@ -32,7 +32,7 @@
 import headTop from "../../components/header/headtop";
 import { currentCity,searchPlace } from "../../servvice/getData.js";
 import { getStore,setStore,deleStore } from "../../config/mUtils.js";
-import { thistle } from 'color-name';
+
 export default {
     data(){
         return{
