@@ -36,7 +36,7 @@ export default {
             headTitle:"搜索",
             placeHolderText:"请输入商家或美食名称",
             shopSearchText:null,
-            searchHistoryArr:null
+            searchHistoryArr:[]
         }
     },
     
@@ -46,7 +46,7 @@ export default {
     },
 
     mounted(){
-        initData();
+        this.initData();
     },
 
     methods:{

@@ -15,6 +15,8 @@ const search = () => import(/* webpackChunkName:'search' */ "../page/search/sear
 const order = () => import(/* webpackChunkName:'order' */ "../page/order/order.vue")
 const profile = () => import(/* webpackChunkName:'profile' */ "../page/profile/profile.vue")
 
+const shop = () => import(/* webpackChunkName:'shop' */ "../page/shop/shop.vue")
+
 //Component属性
 const routes = [{
     //Array<RouteConfig>   routes
@@ -75,6 +77,11 @@ const routes = [{
       {
         path:"/profile",
         component:profile
+      },
+      //商店详情页
+      {
+        path:"/shop",
+        component:shop
       }
 
     ],
