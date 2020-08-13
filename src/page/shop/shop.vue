@@ -46,8 +46,25 @@
                     n个优惠 <i></i>
                 </span>
             </div>
+            <div class="shop-notice">
+                <span>嘻嘻嘻嘻嘻嘻</span>
+            </div>
         </section>
+
         <!-- 切换商品模块栏 -->
+        <section class="shop-switch-control">
+            <div class="switch-btn">
+                <span>点餐</span>
+            </div>
+            <div class="switch-btn">
+                <span>评价</span>
+            </div>
+            <div class="switch-btn">
+                <span>商家</span>
+            </div>
+        </section>
+
+        <!-- 底部三视图 -->
         <section></section>
     </div>
 </template>
@@ -67,8 +84,9 @@ export default {
 
 .shop-head-container{
     // 头部主要描述信息
+    background-color: $fc;
+    position: relative;
     .shop-main{
-        background-color: $fc;
         .shop-main-title{
             height: 2rem;
             display: flex;
@@ -159,15 +177,13 @@ export default {
         margin: .3rem auto 0;
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        // align-content: center;
+        justify-content: flex-start;
         align-items: center;
         position: relative;
         @include wh(80vw,2.5rem);
+        // 优惠标签
         .discount-tag{
             display: flex;
-            // justify-content: space-between;
-            // flex: 1;
             overflow: hidden;            
             .tag{
                 display: inline-block;
@@ -184,7 +200,11 @@ export default {
                     padding: 0 .1rem;
                 }
             }
+            .tag:nth-of-type(1){
+                margin-left: 0;
+            }
         }
+        //查看优惠详情
         .discount-show-tag{
             margin-left: 1rem;
             color: #999;
@@ -206,8 +226,40 @@ export default {
         }
         
     }
+    //公告
+    .shop-notice{
+        width: 80vw;
+        margin: .3rem auto 0;
+        span{
+            margin: 0;
+            text-align: center;
+            color: #999;
+        }
+    }
+}
 
-
+//切换按钮控件
+.shop-switch-control{
+    background-color: $fc;
+    position: sticky;
+    line-height: 10vw;
+    left: 0;
+    right: 0;
+    margin-top: 1rem;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    .switch-btn{
+        flex: 1;
+        text-align: center;
+        span{
+            font-size: 1.5rem;
+            padding: .2rem auto;
+            text-align: center;
+            border-bottom: 2px solid $blue;
+        }
+    }
 }
 
 </style>
