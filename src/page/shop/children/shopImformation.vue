@@ -43,9 +43,27 @@
             </div>
         </section>
 
-        <section class="shop-information"></section>
+        <section class="padding-style shop-information">
+            <h2>商家信息</h2>
+            <ul class="shop-info-ul">
+                <li class="shop-info-li">
+                    <span class="shop-info-type">没有啥商品简短介绍</span>
+                    <span class="shop-info-des">豆浆油条,烤肉拌饭</span>
+                </li>
+                <li class="shop-info-li">
+                    <span class="shop-info-type">品类</span>
+                    <span class="shop-info-des">豆浆油条,烤肉拌饭</span>
+                </li>
+                <li class="shop-info-li">
+                    <span class="shop-info-type">地址</span>
+                    <span class="shop-info-des">广州市xxxx大院1号首层AsasasasasasaBC李静姐嘻嘻嘻</span>
+                </li>
+            </ul>
+        </section>
 
-        <section class="shop-certification"></section>
+        <section class="shop-certification padding-style">
+            <h2>营业资质</h2>
+        </section>
     </div>
 </template>
 
@@ -125,7 +143,7 @@ export default {
   }
 
   .shop-live-container {
-    .shop-live-pics{
+    .shop-live-pics {
       margin-top: 1rem;
       .shop-pic-link {
         margin-right: 0.4rem;
@@ -152,14 +170,59 @@ export default {
     }
   }
 
-  .clearfix{
-      zoom: 1;
+  .clearfix {
+    zoom: 1;
   }
   //TODO 清除浮动并且包容子浮动标签的高度
-  .clearfix::after{
-      content: "";
-      display: block;
-      clear: both;
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  //商家信息
+  .shop-information {
+    padding: 4.2vw 0 1vw 4vw;
+    .shop-info-ul {
+      margin-top: 1rem;
+      .shop-info-li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        border-bottom: 1px solid $bc;
+        span {
+          padding-top: 4vw;
+          padding-bottom: 4vw;
+        }
+        .shop-info-type {
+          display: block;
+          font-weight: 500;
+          color: #333;
+          font-size: 1.2rem;
+        }
+        .shop-info-des {
+          padding-right: 4vw;
+          display: block;
+          font-weight: 300;
+          color: #666;
+          font-size: 1rem;
+          text-align: right;
+          max-width: 60vw;
+        }
+      }
+
+      .shop-info-li:nth-of-type(1) {
+        .shop-info-type {
+          font-weight: 300;
+          color: #666666;
+          font-size: 1.2rem;
+        }
+        .shop-info-des {
+          display: none;
+        }
+      }
+    }
   }
 }
 </style>

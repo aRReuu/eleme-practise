@@ -66,19 +66,23 @@
 
         <!-- 底部三视图 -->
         <section class="shop-switch-page">
-            <!-- <div class="shop-order"></div>
-            <div class="shop-evaluate"></div> -->
+            <!-- <div class="shop-order"></div> -->
+            
+
+            <shop-evaluation>
+                
+            </shop-evaluation>
 
             <!-- 商家页 -->
-            <shop-imformation>
-
+            <shop-imformation style="display:none">
             </shop-imformation>
         </section>
     </div>
 </template>
 
 <script>
-import ShopImformation from "./children/shopImformation"
+import shopImformation from "./children/shopImformation"
+import shopEvaluation from "./children/shopEvaluation"
 
 export default {
     data(){
@@ -87,7 +91,8 @@ export default {
         }
     },
     components:{
-        ShopImformation,
+        shopImformation,
+        shopEvaluation
     }
 }
 </script>
