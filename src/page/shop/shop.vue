@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="shop-page">
         <!-- 顶部视图 -->
         <section class="shop-head-container">
             <div class="shop-main">
@@ -65,7 +65,11 @@
         </section>
 
         <!-- 底部三视图 -->
-        <section></section>
+        <section class="shop-switch-page">
+            <div class="shop-order"></div>
+            <div class="shop-evaluate"></div>
+            <div class="shop-information"></div>
+        </section>
     </div>
 </template>
 
@@ -82,9 +86,13 @@ export default {
 <style lang="scss" scoped>
 @import "../../style/mixin.scss";
 
+.shop-page{
+    background-color: $fc;
+}
+
 .shop-head-container{
     // 头部主要描述信息
-    background-color: $fc;
+    // background-color: $fc;
     position: relative;
     .shop-main{
         .shop-main-title{
@@ -229,10 +237,11 @@ export default {
     //公告
     .shop-notice{
         width: 80vw;
-        margin: .3rem auto 0;
+        margin: .3rem auto 0rem;
         span{
+            display: block;
             margin: 0;
-            text-align: center;
+            text-align: left;
             color: #999;
         }
     }
@@ -250,12 +259,14 @@ export default {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    border-bottom: 1px solid $bc;
     .switch-btn{
         flex: 1;
         text-align: center;
         span{
+            display: inline-block;
             font-size: 1.5rem;
-            padding: .2rem auto;
+            margin: 0 auto -1px;
             text-align: center;
             border-bottom: 2px solid $blue;
         }
