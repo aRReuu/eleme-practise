@@ -66,20 +66,29 @@
 
         <!-- 底部三视图 -->
         <section class="shop-switch-page">
-            <div class="shop-order"></div>
-            <div class="shop-evaluate"></div>
-            <div class="shop-information"></div>
+            <!-- <div class="shop-order"></div>
+            <div class="shop-evaluate"></div> -->
+
+            <!-- 商家页 -->
+            <shop-imformation>
+
+            </shop-imformation>
         </section>
     </div>
 </template>
 
 <script>
+import ShopImformation from "./children/shopImformation"
+
 export default {
     data(){
         return{
 
         }
     },
+    components:{
+        ShopImformation,
+    }
 }
 </script>
 
@@ -87,12 +96,12 @@ export default {
 @import "../../style/mixin.scss";
 
 .shop-page{
-    background-color: $fc;
+    // background-color: $fc;
 }
 
 .shop-head-container{
     // 头部主要描述信息
-    // background-color: $fc;
+    background-color: $fc;
     position: relative;
     .shop-main{
         .shop-main-title{
