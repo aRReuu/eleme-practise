@@ -31,8 +31,21 @@
 
             </div>
         </section>
+        <!-- 标签 -->
         <section class="score-tag-container">
+            <ul v-if="tags.length > 0">
+                <li v-for="(tag,index) in tags" :key="index" :class="tag.unsatisfied ? 'li-unsatisfied-color' : 'li-normal-color'">
+                    {{tag.name}} {{tag.count}}
+                </li>
+            </ul>
+            <div class="tag-content-switch">
+                <svg t="1598003369781" id="checked" class="check-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1167" width="200" height="200"><path d="M0 512C0 229.235 229.235 0 512 0s512 229.235 512 512-229.235 512-512 512S0 794.765 0 512z m419.31 194.63a35.31 35.31 0 0 0 49.4 1.272L804.228 395.97a35.31 35.31 0 0 0-48.075-51.73L447.03 633.786 301.903 484.14a35.31 35.31 0 1 0-50.688 49.17l168.113 173.32z" p-id="1168" :fill="isCheck ? '#1afa29':'#e6e6e6' "  ></path></svg>
+                <p>只看有内容的评价</p> 
+            </div>
+        </section>
 
+        <section class="shop-evaluation-list">
+    
         </section>
     </div>
 </template>
@@ -42,6 +55,7 @@
 export default {
   data() {
     return {
+      isCheck: false,
       comments: [
         {
           avatar: "c6b8384f98b8dedfd87fc1450926648cjpeg",
@@ -225,13 +239,14 @@ span {
     }
   }
 
+  //评分
   .sub-average-score-right {
     display: flex;
     // justify-content: space-around;
     flex: 1;
     align-items: center;
     .sub-des-score {
-        margin-left: 6vw;
+      margin-left: 6vw;
       width: 36%;
       display: flex;
       justify-content: space-between;
@@ -249,4 +264,59 @@ span {
     }
   }
 }
+
+//标签&切换评论   todo切换优质评论移到评论瀑布流列表
+.score-tag-container {
+  margin-top: 0.6rem;
+  background-color: $fc;
+  ul {
+    padding: 0 0.6rem 0.6rem;
+    li {
+      display: inline-block;
+      padding: 0.65rem;
+      margin-right: 0.6rem;
+      margin-top: 0.6rem;
+      font-size: 1rem;
+    }
+    .li-normal-color {
+      background-color: #ebf5ff;
+      color: #6d7885;
+    }
+    .li-unsatisfied-color {
+      background-color: #f5f5f5;
+      color: #aaa;
+    }
+    .li-selected-color {
+      background-color: #0097ff;
+      color: $fc;
+    }
+  }
+
+  .tag-content-switch {
+    border-top: 1px solid rgba($color: #e4e4e4, $alpha: 0.6);
+    border-bottom: 1px solid rgba($color: #e4e4e4, $alpha: 0.6);
+    text-align: left;
+    margin: .6rem;
+    padding: 1.1rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .check-icon {
+      display: inline-block;
+      @include wh(3vw, 3vw);
+    }
+    p {
+      margin-left: 0.3rem;
+      display: inline-block;
+    }
+  }
+}
+
+//评论
+.shop-evaluation-list{
+    
+}
+
+
 </style>
