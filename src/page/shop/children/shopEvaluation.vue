@@ -45,7 +45,29 @@
         </section>
 
         <section class="shop-evaluation-list">
-    
+            <div class="eva-head">
+                <img src="../../../images/shop_chi.png" alt="">
+            </div>
+            <div class="eva-sub-msg">
+                <section class="eva-name-date">
+                    <span>你大爷和大妈ID</span>
+                    <span>xxxx-xx-xx</span>
+                </section>
+                <section class="eva-score">
+                    <img src="" alt="">
+                    <p>一般</p>
+                </section>
+                <section class="eva-msg">
+                   <mark>苏丹王黄金果肉榴莲比萨(8英寸)</mark> 
+                    <p> 味道正宗！特别表扬送餐员敬业精神！台风天冒着十级大风九级暴雨提前送达！超级赞！</p>
+                </section>
+                <section class="eva-shop-reply">
+                    商家回复：亲爱的顾客，感谢您选择品尝本店的美食，谢谢您认可我们的口味和服务，我们会继续努力，为您提供更好的服务。祝您生活愉快！
+                </section>
+                <section class="eva-pictures">
+
+                </section>
+            </div>
         </section>
     </div>
 </template>
@@ -315,7 +337,67 @@ span {
 
 //评论
 .shop-evaluation-list{
-    
+    width: 100%;
+    background-color: $fc;
+    display: flex;
+    .eva-head{
+        position: relative;
+        width: 15%;
+        img{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: .2rem;
+            border-radius: 5vw;
+            background-color: red;
+            @include wh(10vw,10vw);
+        }
+    }
+    .eva-sub-msg{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin-right: .6rem;
+        .eva-name-date{
+            display: flex;
+            justify-content: space-between;
+        }
+        .eva-score{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            img{
+                height: 100%;
+            }
+            p{
+                margin-left: .2rem;
+                color: rgb(255, 96, 0);
+            }
+        }
+        .eva-msg{
+            //换行情况
+        }
+        .eva-shop-reply{
+            margin: .6rem 0;
+            background-color: #f3f3f3;
+            padding: .3rem;
+            position: relative;
+        }
+        .eva-shop-reply::after{
+            content: "";
+            position: absolute;
+            left: .5rem;
+            top: 0;
+            border-width: 0 2vw 2vw 2vw;
+            border-style: solid;
+            border-color: transparent transparent #f3f3f3 transparent;
+        }
+        .eva-pictures{
+            @include wh(100%,220px);
+            background-color: greenyellow;
+        }
+        
+    }
 }
 
 
