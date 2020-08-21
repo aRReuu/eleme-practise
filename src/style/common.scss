@@ -151,3 +151,14 @@ html,body{
     75% {opacity: .5}
     100% {opacity: 1}
 }
+
+
+.clearfix {
+    zoom: 1;
+  }
+  //TODO 清除浮动并且包容子浮动标签的高度
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }

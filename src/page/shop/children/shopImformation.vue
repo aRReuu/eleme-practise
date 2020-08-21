@@ -170,15 +170,6 @@ export default {
     }
   }
 
-  .clearfix {
-    zoom: 1;
-  }
-  //TODO 清除浮动并且包容子浮动标签的高度
-  .clearfix::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
 
   //商家信息
   .shop-information {
