@@ -65,17 +65,13 @@
         </section>
 
         <!-- 底部三视图 -->
-        <section class="shop-switch-page">
+        <section class="shop-switch-container">
             <!-- <div class="shop-order"></div> -->
             
-
-            <shop-evaluation>
-                
-            </shop-evaluation>
+            <shop-evaluation></shop-evaluation>
 
             <!-- 商家页 -->
-            <shop-imformation style="display:none">
-            </shop-imformation>
+            <shop-imformation style="display:none;"></shop-imformation>
         </section>
     </div>
 </template>
@@ -99,10 +95,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../style/mixin.scss";
-
-.shop-page{
-    // background-color: $fc;
-}
 
 .shop-head-container{
     // 头部主要描述信息
@@ -263,18 +255,21 @@ export default {
 
 //切换按钮控件
 .shop-switch-control{
+    // display: block;
     background-color: $fc;
     position: sticky;
-    line-height: 10vw;
+    // TODO 必须指定顶部top属性，否则粘性定位不生效
+    top: 0;
     left: 0;
     right: 0;
     margin-top: 1rem;
-    z-index: 2;
+    // z-index: 2;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     border-bottom: 1px solid $bc;
     .switch-btn{
+        line-height: 10vw;
         flex: 1;
         text-align: center;
         span{
@@ -286,5 +281,10 @@ export default {
         }
     }
 }
+
+.shop-switch-container{
+
+}
+
 
 </style>

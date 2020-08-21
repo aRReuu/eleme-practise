@@ -1,12 +1,19 @@
 <template>
-    <div class="">
+    <div class="shop-evaluation-container">
         <section class="score-container">
-            <div class="average-score">
-                
+            <div class="average-score-left">
+                <div class="score"></div>
+                <div class="score-start">
+                    <span>商家评分</span>
+                    <i><img src="" alt=""></i>
+                </div>
             </div>
-            <div class="sub-average-score">
+            <div class="sub-average-score-right">
 
             </div>
+        </section>
+        <section class="score-tag-container">
+
         </section>
     </div>
 </template>
@@ -145,4 +152,31 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../style/mixin.scss";
+
+
+.score-container{
+    .average-score-left{
+        width: 45%;
+        display: flex;
+        justify-content: center;
+        .score{
+            color: red;
+            font-size: 1.3rem;
+        }
+        .score-start{
+            img{
+                background-color: greenyellow;
+            }
+        }
+    }
+
+    .sub-average-score-right{
+        display: flex;
+        justify-content: center;
+        .sub-des-score{
+            -ms-grid-column-span: ;
+        }
+    }
+}
+
 </style>
