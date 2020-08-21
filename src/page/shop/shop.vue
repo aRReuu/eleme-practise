@@ -255,7 +255,6 @@ export default {
 
 //切换按钮控件
 .shop-switch-control{
-    // display: block;
     background-color: $fc;
     position: sticky;
     // TODO 必须指定顶部top属性，否则粘性定位不生效
@@ -263,7 +262,7 @@ export default {
     left: 0;
     right: 0;
     margin-top: 1rem;
-    // z-index: 2;
+    z-index: 2;
     display: flex;
     justify-content: center;
     align-items: flex-end;
