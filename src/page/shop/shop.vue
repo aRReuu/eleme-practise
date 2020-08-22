@@ -66,9 +66,9 @@
 
         <!-- 底部三视图 -->
         <section class="shop-switch-container">
-            <!-- <div class="shop-order"></div> -->
+            <div class="shop-order"></div>
             
-            <shop-evaluation></shop-evaluation>
+            <shop-evaluation  style="display:none;"></shop-evaluation>
 
             <!-- 商家页 -->
             <shop-imformation style="display:none;"></shop-imformation>

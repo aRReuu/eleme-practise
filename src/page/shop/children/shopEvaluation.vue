@@ -377,6 +377,7 @@ span {
   background-color: $fc;
   display: flex;
   padding-top: 1rem;
+  border-bottom: 1px solid rgba($color: #e4e4e4, $alpha: 0.6);
   .eva-head {
     position: relative;
     width: 15%;
