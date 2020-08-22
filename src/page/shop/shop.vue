@@ -65,11 +65,10 @@
         </section>
 
         <!-- 底部三视图 -->
-        <section class="shop-switch-container">
-            <div class="shop-order"></div>
+        <section class="shop-switch-container"> 
+            <shop-order> </shop-order>
             
             <shop-evaluation  style="display:none;"></shop-evaluation>
-
             <!-- 商家页 -->
             <shop-imformation style="display:none;"></shop-imformation>
         </section>
@@ -79,6 +78,7 @@
 <script>
 import shopImformation from "./children/shopImformation"
 import shopEvaluation from "./children/shopEvaluation"
+import shopOrder from "./children/shopOrder"
 
 export default {
     data(){
@@ -88,7 +88,8 @@ export default {
     },
     components:{
         shopImformation,
-        shopEvaluation
+        shopEvaluation,
+        shopOrder
     }
 }
 </script>
