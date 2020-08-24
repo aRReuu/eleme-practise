@@ -44,12 +44,72 @@
         </div>
       </div>
     </section>
+
+    <section class="shop-scroll-view">
+      <div class="left-menu-wrap" ref="menuScroll">
+        <ul>
+          <li>ssss</li>
+          <li>ssss</li>
+          <li>ssss</li>
+          <li>ssss</li>
+          <li>ssss</li>
+          <li>ssss</li>
+          <li>ssss</li>
+          <li>ssss</li>
+          <li>ssss</li>
+        </ul>
+      </div>
+      <div class="right-foods-wrap" ref="foodsScroll">
+        <dl class="section-foods">
+          <dt>ssss</dt>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+          <dd></dd>
+        </dl>
+      </div>
+    </section>
   </div>
 </template>
 
 
 <script>
-export default {};
+import BScroll from "vue2-better-scroll";
+
+export default {
+  data(){
+    return{
+      menuScroll:{},
+      foodsScroll:{},
+      scrollY:0,
+    };
+  },
+
+  mounted(){
+    initScroll();
+  },
+
+  components:{
+    BScroll,
+  },
+  
+
+  methods:{
+    initScroll(){
+      this.menuScroll = new BScroll(this.$refs.menuScroll,{
+        click:true
+      });
+      this.foodsScroll = new BScroll(this.$refs.foodsScroll,{
+        click:true,
+        probeType:3
+      });
+      this.foodsScroll.on("scroll",pos => {
+        // this.scrollY = Math
+      })
+    },
+  }
+
+};
 </script>
 
 
@@ -76,20 +136,22 @@ export default {};
     font-weight: 600;
   }
   .recomend-foods {
-    
     margin-top: 20px;
+    margin-right: -10px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    overflow: hidden;
+    overflow-x: scroll;
+    //空白位置处理
+    white-space: nowrap;
+    //文字
+    // overflow-wrap:normal;
     .food {
-      margin-right: 5px;
+      margin-right: 8px;
       position: relative;
-      width: 60vw;
-      
       img {
-        border-radius: 3px;
-        @include wh(100%, 32vw);
+        border-radius: 6px;
+        @include wh(33.33vw, 33.33vw);
       }
       .food-des {
         display: flex;
@@ -106,6 +168,24 @@ export default {};
         position: absolute;
         @include wh(20%, 12.5%);
       }
+    }
+  }
+}
+
+.shop-scroll-view{
+  height: calc(100vh - 44px);
+  position: sticky;
+  display: flex;
+  background-color: $fc;
+  .left-menu-wrap{
+    flex: .2;
+    background-color: $ic;
+  }
+  .right-foods-wrap{
+    flex: .8;
+
+    .section-foods {
+      
     }
   }
 }
