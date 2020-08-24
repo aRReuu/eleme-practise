@@ -76,6 +76,7 @@ export default {};
     font-weight: 600;
   }
   .recomend-foods {
+    
     margin-top: 20px;
     display: flex;
     justify-content: flex-start;
