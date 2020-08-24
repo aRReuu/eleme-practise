@@ -80,10 +80,8 @@ export default {};
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    // overflow: scroll;
     overflow: hidden;
     .food {
-      // -webkit-box-flex: 1;
       margin-right: 5px;
       position: relative;
       width: 60vw;
