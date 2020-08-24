@@ -61,11 +61,67 @@
       </div>
       <div class="right-foods-wrap" ref="foodsScroll">
         <dl class="section-foods">
-          <dt>ssss</dt>
-          <dd></dd>
-          <dd></dd>
-          <dd></dd>
-          <dd></dd>
+          <dt class="section-title">
+            <strong>热销</strong>
+            <small>ii萨基时间啊时间啊时间</small>
+          </dt>
+          <dd class="seciton-food-row">
+            <span class="food-pic">
+              <img src="../../../images/shop_chi.png" alt />
+            </span>
+            <section class="food-des">
+              <h2 class="ellipsis">三文鱼一斤</h2>
+              <p class="ellipsis">还有一份洒洒水上的</p>
+              <p class="ellipsis">月瘦2222 好评率20%</p>
+              <div class="discount">
+                <span>6.9折</span>
+              </div>
+              <span class="price">$23.7 
+                <del>$28</del>
+              </span>
+              <div class="add-cart">
+
+              </div>
+            </section>
+          </dd>
+           <dd class="seciton-food-row">
+            <span class="food-pic">
+              <img src="../../../images/shop_chi.png" alt />
+            </span>
+            <section class="food-des">
+              <h2 class="ellipsis">三文鱼一斤</h2>
+              <p class="ellipsis">还有一份洒洒水上的</p>
+              <p class="ellipsis">月瘦2222 好评率20%</p>
+              <div class="discount">
+                <span>6.9折</span>
+              </div>
+              <span class="price">$23.7 
+                <del>$28</del>
+              </span>
+              <div class="add-cart">
+
+              </div>
+            </section>
+          </dd>
+           <dd class="seciton-food-row">
+            <span class="food-pic">
+              <img src="../../../images/shop_chi.png" alt />
+            </span>
+            <section class="food-des">
+              <h2 class="ellipsis">三文鱼一斤</h2>
+              <p class="ellipsis">还有一份洒洒水上的</p>
+              <p class="ellipsis">月瘦2222 好评率20%</p>
+              <div class="discount">
+                <span>6.9折</span>
+              </div>
+              <span class="price">$23.7 
+                <del>$28</del>
+              </span>
+              <div class="add-cart">
+
+              </div>
+            </section>
+          </dd>
         </dl>
       </div>
     </section>
@@ -177,15 +233,87 @@ export default {
   position: sticky;
   display: flex;
   background-color: $fc;
+  text-align: center;
   .left-menu-wrap{
     flex: .2;
     background-color: $ic;
+    li{
+      padding: 2.6vw 2vw;
+      text-align: left;
+    }
   }
   .right-foods-wrap{
     flex: .8;
-
     .section-foods {
-      
+      .section-title{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 4px;
+        strong small {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        small{
+          color: #999;
+        }
+      }
+      .seciton-food-row{
+        display: flex;
+        align-items: flex-start;
+        height: 27.3333vw;
+        margin: 0 10px 6px 5px;
+        .food-pic{
+          img{
+            border-radius: 3px;
+            @include wh(25.3333vw,25.3333vw);
+          } 
+        }
+        .food-des{
+          height: 100%;
+          padding-left: 8px;
+          text-align: left;
+          position: relative;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          p{           
+            margin-top: 3px;
+            display: block;
+            color: #999;
+            font-size: 9px;
+          }
+          .discount{
+            margin-top: 3px;
+            span{
+              font-size: 8px;
+              border: 1px solid #eb6551;
+              color: #eb6551;
+              padding: 0 2px;
+            }
+          }
+          .price{
+            position: absolute;
+            bottom: 2px;
+            display: block;      
+            color:  rgb(255, 83, 57);
+             font-size: 18px;
+            del{
+              color: #999;
+              margin-left: 6px;
+              font-size: 12px;
+            }
+          }
+          .add-cart{
+            position: absolute;
+            right: 2px;
+            bottom: 2px;
+            @include wh(20px,20px);
+            background-color: red;
+          }
+
+        }
+      }
     }
   }
 }
