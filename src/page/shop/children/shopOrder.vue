@@ -125,11 +125,13 @@
         </dl>
       </div>
     </section>
+    <shop-car></shop-car>
   </div>
 </template>
 
 <script>
 import BScroll from "vue2-better-scroll";
+import ShopCar from "./shopCar"
 
 export default {
   data(){
@@ -146,9 +148,9 @@ export default {
 
   components:{
     BScroll,
+    ShopCar
   },
   
-
   methods:{
     initScroll(){
       this.menuScroll = new BScroll(this.$refs.menuScroll,{
@@ -173,6 +175,7 @@ export default {
 
 .order {
   background-color: $fc;
+  position: relative;
 }
 
 .shop-recommend {
