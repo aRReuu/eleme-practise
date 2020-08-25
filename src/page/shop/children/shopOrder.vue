@@ -63,7 +63,7 @@
         <dl class="section-foods">
           <dt class="section-title">
             <strong>热销</strong>
-            <small>ii萨基时间啊时间啊时间</small>
+            <small class="ellipsis">ii萨基时间啊时间啊时间</small>
           </dt>
           <dd class="seciton-food-row">
             <span class="food-pic">
@@ -127,7 +127,6 @@
     </section>
   </div>
 </template>
-
 
 <script>
 import BScroll from "vue2-better-scroll";
@@ -229,6 +228,7 @@ export default {
 }
 
 .shop-scroll-view{
+  padding-top: 15px;
   height: calc(100vh - 44px);
   position: sticky;
   display: flex;
@@ -249,12 +249,13 @@ export default {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 4px;
+        padding: 10px;
         strong small {
           overflow: hidden;
           text-overflow: ellipsis;
         }
         small{
+          margin-left: 5px;
           color: #999;
         }
       }
