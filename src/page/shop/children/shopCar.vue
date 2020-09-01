@@ -101,7 +101,6 @@ export default {
             font-size: 15px;
             padding-right: 10px;
         }
-
     }
 }
 

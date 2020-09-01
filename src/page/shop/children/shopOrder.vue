@@ -123,6 +123,135 @@
             </section>
           </dd>
         </dl>
+
+        <dl class="section-foods">
+          <dt class="section-title">
+            <strong>热销</strong>
+            <small class="ellipsis">ii萨基时间啊时间啊时间</small>
+          </dt>
+          <dd class="seciton-food-row">
+            <span class="food-pic">
+              <img src="../../../images/shop_chi.png" alt />
+            </span>
+            <section class="food-des">
+              <h2 class="ellipsis">三文鱼一斤</h2>
+              <p class="ellipsis">还有一份洒洒水上的</p>
+              <p class="ellipsis">月瘦2222 好评率20%</p>
+              <div class="discount">
+                <span>6.9折</span>
+              </div>
+              <span class="price">$23.7 
+                <del>$28</del>
+              </span>
+              <div class="add-cart">
+
+              </div>
+            </section>
+          </dd>
+           <dd class="seciton-food-row">
+            <span class="food-pic">
+              <img src="../../../images/shop_chi.png" alt />
+            </span>
+            <section class="food-des">
+              <h2 class="ellipsis">三文鱼一斤</h2>
+              <p class="ellipsis">还有一份洒洒水上的</p>
+              <p class="ellipsis">月瘦2222 好评率20%</p>
+              <div class="discount">
+                <span>6.9折</span>
+              </div>
+              <span class="price">$23.7 
+                <del>$28</del>
+              </span>
+              <div class="add-cart">
+
+              </div>
+            </section>
+          </dd>
+           <dd class="seciton-food-row">
+            <span class="food-pic">
+              <img src="../../../images/shop_chi.png" alt />
+            </span>
+            <section class="food-des">
+              <h2 class="ellipsis">三文鱼一斤</h2>
+              <p class="ellipsis">还有一份洒洒水上的</p>
+              <p class="ellipsis">月瘦2222 好评率20%</p>
+              <div class="discount">
+                <span>6.9折</span>
+              </div>
+              <span class="price">$23.7 
+                <del>$28</del>
+              </span>
+              <div class="add-cart">
+
+              </div>
+            </section>
+          </dd>
+        </dl>
+
+      <dl class="section-foods">
+          <dt class="section-title">
+            <strong>热销</strong>
+            <small class="ellipsis">ii萨基时间啊时间啊时间</small>
+          </dt>
+          <dd class="seciton-food-row">
+            <span class="food-pic">
+              <img src="../../../images/shop_chi.png" alt />
+            </span>
+            <section class="food-des">
+              <h2 class="ellipsis">三文鱼一斤</h2>
+              <p class="ellipsis">还有一份洒洒水上的</p>
+              <p class="ellipsis">月瘦2222 好评率20%</p>
+              <div class="discount">
+                <span>6.9折</span>
+              </div>
+              <span class="price">$23.7 
+                <del>$28</del>
+              </span>
+              <div class="add-cart">
+
+              </div>
+            </section>
+          </dd>
+           <dd class="seciton-food-row">
+            <span class="food-pic">
+              <img src="../../../images/shop_chi.png" alt />
+            </span>
+            <section class="food-des">
+              <h2 class="ellipsis">三文鱼一斤</h2>
+              <p class="ellipsis">还有一份洒洒水上的</p>
+              <p class="ellipsis">月瘦2222 好评率20%</p>
+              <div class="discount">
+                <span>6.9折</span>
+              </div>
+              <span class="price">$23.7 
+                <del>$28</del>
+              </span>
+              <div class="add-cart">
+
+              </div>
+            </section>
+          </dd>
+           <dd class="seciton-food-row">
+            <span class="food-pic">
+              <img src="../../../images/shop_chi.png" alt />
+            </span>
+            <section class="food-des">
+              <h2 class="ellipsis">三文鱼一斤</h2>
+              <p class="ellipsis">还有一份洒洒水上的</p>
+              <p class="ellipsis">月瘦2222 好评率20%</p>
+              <div class="discount">
+                <span>6.9折</span>
+              </div>
+              <span class="price">$23.7 
+                <del>$28</del>
+              </span>
+              <div class="add-cart">
+
+              </div>
+            </section>
+          </dd>
+        </dl>
+
       </div>
     </section>
     <shop-car></shop-car>
@@ -176,6 +305,7 @@ export default {
 .order {
   background-color: $fc;
   position: relative;
+  margin-bottom: 60px;
 }
 
 .shop-recommend {
@@ -230,15 +360,17 @@ export default {
   }
 }
 
-.shop-scroll-view{
-  padding-top: 15px;
+.shop-scroll-view{ 
   height: calc(100vh - 44px);
   position: sticky;
   display: flex;
   background-color: $fc;
   text-align: center;
-  .left-menu-wrap{
+  top: 44px;
+  .left-menu-wrap{ 
     flex: .2;
+    height: 100%;
+    margin: 0 auto;
     background-color: $ic;
     li{
       padding: 2.6vw 2vw;
@@ -246,6 +378,7 @@ export default {
     }
   }
   .right-foods-wrap{
+    overflow: scroll;
     flex: .8;
     .section-foods {
       .section-title{
