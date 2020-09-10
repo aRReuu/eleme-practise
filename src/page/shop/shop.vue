@@ -66,8 +66,7 @@
 
         <!-- 底部三视图 -->
         <section class="shop-switch-container"> 
-            <shop-order> </shop-order>
-            
+            <shop-order > </shop-order>
             <shop-evaluation  style="display:none;"></shop-evaluation>
             <!-- 商家页 -->
             <shop-imformation style="display:none;"></shop-imformation>
@@ -258,6 +257,7 @@ export default {
 .shop-switch-control{
     background-color: $fc;
     position: sticky;
+    height: $scrollTop;
     // TODO 必须指定顶部top属性，否则粘性定位不生效
     top: 0;
     left: 0;

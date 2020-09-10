@@ -44,7 +44,7 @@
         </div>
       </div>
     </section>
-
+    <!-- TODO 滚动➡️窗口直接让当前菜单定位到粘性属性 -->
     <section class="shop-scroll-view">
       <div class="left-menu-wrap" ref="menuScroll">
         <ul>
@@ -259,42 +259,48 @@
 </template>
 
 <script>
+import { shopOrderTest } from "../../../servvice/getData.js";
 import BScroll from "vue2-better-scroll";
-import ShopCar from "./shopCar"
+import ShopCar from "./shopCar";
 
 export default {
-  data(){
-    return{
-      menuScroll:{},
-      foodsScroll:{},
-      scrollY:0,
+  data() {
+    return {
+      menuScroll: {},
+      foodsScroll: {},
+      scrollY: 0,
+      scrollData: null
     };
   },
 
-  mounted(){
-    initScroll();
+  mounted() {
+    this.initScroll();
   },
 
-  components:{
+  components: {
     BScroll,
     ShopCar
   },
-  
-  methods:{
-    initScroll(){
-      this.menuScroll = new BScroll(this.$refs.menuScroll,{
-        click:true
-      });
-      this.foodsScroll = new BScroll(this.$refs.foodsScroll,{
-        click:true,
-        probeType:3
-      });
-      this.foodsScroll.on("scroll",pos => {
-        // this.scrollY = Math
-      })
-    },
-  }
 
+  methods: {
+    initScroll() {
+      // this.menuScroll = new BScroll(this.$refs.menuScroll, {
+      //   click: true
+      // });
+      // this.foodsScroll = new BScroll(this.$refs.foodsScroll, {
+      //   click: true,
+      //   probeType: 3
+      // });
+      // this.foodsScroll.on("scroll", pos => {
+      // this.scrollY = Math
+      // });
+
+      shopOrderTest().then(res => {
+        console.log(res);
+        this.scrollData = res;
+      });
+    }
+  }
 };
 </script>
 
@@ -305,7 +311,6 @@ export default {
 .order {
   background-color: $fc;
   position: relative;
-  margin-bottom: 60px;
 }
 
 .shop-recommend {
@@ -360,28 +365,29 @@ export default {
   }
 }
 
-.shop-scroll-view{ 
-  height: calc(100vh - 44px);
+.shop-scroll-view {
+  height: calc(100vh - 40px);
   position: sticky;
   display: flex;
   background-color: $fc;
   text-align: center;
-  top: 44px;
-  .left-menu-wrap{ 
-    flex: .2;
+  top: $scrollTop;
+  padding-bottom: 60px;
+  .left-menu-wrap {
+    flex: 0.2;
     height: 100%;
     margin: 0 auto;
     background-color: $ic;
-    li{
+    li {
       padding: 2.6vw 2vw;
       text-align: left;
     }
   }
-  .right-foods-wrap{
+  .right-foods-wrap {
     overflow: scroll;
-    flex: .8;
+    flex: 0.8;
     .section-foods {
-      .section-title{
+      .section-title {
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -390,23 +396,23 @@ export default {
           overflow: hidden;
           text-overflow: ellipsis;
         }
-        small{
+        small {
           margin-left: 5px;
           color: #999;
         }
       }
-      .seciton-food-row{
+      .seciton-food-row {
         display: flex;
         align-items: flex-start;
         height: 27.3333vw;
         margin: 0 10px 6px 5px;
-        .food-pic{
-          img{
+        .food-pic {
+          img {
             border-radius: 3px;
-            @include wh(25.3333vw,25.3333vw);
-          } 
+            @include wh(25.3333vw, 25.3333vw);
+          }
         }
-        .food-des{
+        .food-des {
           height: 100%;
           padding-left: 8px;
           text-align: left;
@@ -414,41 +420,40 @@ export default {
           flex: 1;
           display: flex;
           flex-direction: column;
-          p{           
+          p {
             margin-top: 3px;
             display: block;
             color: #999;
             font-size: 9px;
           }
-          .discount{
+          .discount {
             margin-top: 3px;
-            span{
+            span {
               font-size: 8px;
               border: 1px solid #eb6551;
               color: #eb6551;
               padding: 0 2px;
             }
           }
-          .price{
+          .price {
             position: absolute;
             bottom: 2px;
-            display: block;      
-            color:  rgb(255, 83, 57);
-             font-size: 18px;
-            del{
+            display: block;
+            color: rgb(255, 83, 57);
+            font-size: 18px;
+            del {
               color: #999;
               margin-left: 6px;
               font-size: 12px;
             }
           }
-          .add-cart{
+          .add-cart {
             position: absolute;
             right: 2px;
             bottom: 2px;
-            @include wh(20px,20px);
+            @include wh(20px, 20px);
             background-color: red;
           }
-
         }
       }
     }

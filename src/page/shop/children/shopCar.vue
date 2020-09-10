@@ -1,7 +1,7 @@
 <template>
     <div class="car-container">
         <section class="car-discount ellipsis">
-            <span>满20减222，满22减222.。。。。。。</span>
+            <span>---------</span>
         </section>
         
         <section class="car-list">
@@ -28,11 +28,11 @@
                 </div>
             </div>
             <div class="car-price">
-                <span>未选购商品</span>
-                <span>另需配送费4元</span>
+                <span>----</span>
+                <span>------</span>
             </div>
             <button class="buy-btn">
-                $15元配送
+                -----
             </button>
         </section>
 
@@ -70,6 +70,7 @@ export default {
     font-size: 8px;
   }
   .car-list {
+    display: none;
     .car-select-des {
       padding: 10px 10px;
       display: flex;
@@ -87,14 +88,15 @@ export default {
         justify-content: center;
         align-items: center;
         i {
-          @include wh(10px, 10px);
+          @include wh(13px, 13px);
+          padding-right: 2px;
         }
       }
     }
     ul {
       background-color: $fc;
       .car-food {
-        padding:10px 0 10px 10px;
+        padding:10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -109,7 +111,7 @@ export default {
           text-align: center;
         }
         span:nth-of-type(3) {
-          flex: 1;
+          flex: .9;
         }
       }
     }

@@ -1,5 +1,6 @@
 import fetch from "../config/fetch";
 import { getStore } from "../config/mUtils";
+import axios from "axios";
 
 const cityUrl = "/v1/cities/";//城市系列地址
 const searchPlaceUrl = "/v1/pois";//搜索地址
@@ -133,4 +134,9 @@ export const accountLogin = (username, password, captcha_code) => {
         password, 
         captcha_code
     }, 'POST');
+}
+
+
+export const shopOrderTest = ()=>{
+    return axios.get("/Data/Shop/shopOrderData.json");
 }
