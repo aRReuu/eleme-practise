@@ -284,16 +284,16 @@ export default {
 
   methods: {
     initScroll() {
-      // this.menuScroll = new BScroll(this.$refs.menuScroll, {
-      //   click: true
-      // });
-      // this.foodsScroll = new BScroll(this.$refs.foodsScroll, {
-      //   click: true,
-      //   probeType: 3
-      // });
-      // this.foodsScroll.on("scroll", pos => {
-      // this.scrollY = Math
-      // });
+      this.menuScroll = new BScroll(this.$refs.menuScroll, {
+        click: true
+      });
+      this.foodsScroll = new BScroll(this.$refs.foodsScroll, {
+        click: true,
+        probeType: 3
+      });
+      this.foodsScroll.on("scroll", pos => {
+        // this.scrollY = Math
+      });
 
       shopOrderTest().then(res => {
         this.scrollData = res.data;
