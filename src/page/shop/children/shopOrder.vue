@@ -296,8 +296,7 @@ export default {
       // });
 
       shopOrderTest().then(res => {
-        console.log(res);
-        this.scrollData = res;
+        this.scrollData = res.data;
       });
     }
   }
