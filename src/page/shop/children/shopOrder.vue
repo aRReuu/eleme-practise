@@ -188,7 +188,7 @@
           </dd>
         </dl>
 
-      <dl class="section-foods">
+        <dl class="section-foods">
           <dt class="section-title">
             <strong>热销</strong>
             <small class="ellipsis">ii萨基时间啊时间啊时间</small>
@@ -251,7 +251,6 @@
             </section>
           </dd>
         </dl>
-
       </div>
     </section>
     <shop-car></shop-car>
@@ -260,16 +259,17 @@
 
 <script>
 import { shopOrderTest } from "../../../servvice/getData.js";
-import BScroll from "vue2-better-scroll";
+import BScroll from "better-scroll";
 import ShopCar from "./shopCar";
 
 export default {
   data() {
     return {
-      menuScroll: {},
-      foodsScroll: {},
+      menuScroll: null,
+      foodsScroll: null,
       scrollY: 0,
-      scrollData: null
+      scrollData: null,
+      foodsHeights:[]
     };
   },
 
@@ -283,6 +283,9 @@ export default {
   },
 
   methods: {
+    /** 
+     * 1.初始化滚动视图  2.获取视图数据
+     */
     initScroll() {
       this.menuScroll = new BScroll(this.$refs.menuScroll, {
         click: true
@@ -291,14 +294,26 @@ export default {
         click: true,
         probeType: 3
       });
-      this.foodsScroll.on("scroll", pos => {
-        // this.scrollY = Math
+      //
+      this.foodsScroll.on('scroll',pos => {
+        console.log(this.foodsScroll.hasVerticalScroll);//false
+        console.log(this.foodsScroll.scrollerHeight);//575
+        console.log(this.foodsScroll.wrapperHeight);//
+         console.log(Math.abs(Math.round(pos.y))); 
       });
 
       shopOrderTest().then(res => {
         this.scrollData = res.data;
+        //处理高度
       });
-    }
+    },
+
+    /**
+     * 菜单/食物联动切换
+     */
+    selectMenu(index){
+      this.foodsScroll.scrollTo(0,foodsHeights[index]);
+    },
   }
 };
 </script>
@@ -383,7 +398,8 @@ export default {
     }
   }
   .right-foods-wrap {
-    overflow: scroll;
+    // overflow: scroll;
+    height: 100%;
     flex: 0.8;
     .section-foods {
       .section-title {
