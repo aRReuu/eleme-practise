@@ -257,7 +257,7 @@ export default {
 .shop-switch-control{
     background-color: $fc;
     position: sticky;
-    height: $scrollTop;
+    height: 40px;
     // TODO 必须指定顶部top属性，否则粘性定位不生效
     top: 0;
     left: 0;
