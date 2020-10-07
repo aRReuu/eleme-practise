@@ -15,7 +15,7 @@
           </div>
           <span></span>
         </div>
-         <div class="food">
+        <div class="food">
           <img src="../../../images/shop_chi.png" alt />
           <div class="food-des">
             <p>浓情一刻套操套餐</p>
@@ -24,7 +24,7 @@
           </div>
           <span></span>
         </div>
-         <div class="food">
+        <div class="food">
           <img src="../../../images/shop_chi.png" alt />
           <div class="food-des">
             <p>浓情一刻套操套餐</p>
@@ -33,7 +33,7 @@
           </div>
           <span></span>
         </div>
-         <div class="food">
+        <div class="food">
           <img src="../../../images/shop_chi.png" alt />
           <div class="food-des">
             <p>浓情一刻套操套餐</p>
@@ -48,36 +48,36 @@
     <section class="shop-scroll-view">
       <div class="left-menu-wrap" ref="menuScroll">
         <ul>
-          <li v-for="count in 3" :key="count">ssss</li> 
+          <li v-for="count in 20" :key="count">ssss</li>
         </ul>
       </div>
       <div class="right-foods-wrap" ref="foodsScroll">
-        <dl class="section-foods" v-for="count in 3" :key="count">
-          <dt class="section-title">
-            <strong>热销</strong>
-            <small class="ellipsis">ii萨基时间啊时间啊时间</small>
-          </dt>
-          <dd class="seciton-food-row" v-for="co in 3" :key="co">
-            <span class="food-pic">
-              <img src="../../../images/shop_chi.png" alt />
-            </span>
-            <section class="food-des">
-              <h2 class="ellipsis">三文鱼一斤</h2>
-              <p class="ellipsis">还有一份洒洒水上的</p>
-              <p class="ellipsis">月瘦2222 好评率20%</p>
-              <div class="discount">
-                <span>6.9折</span>
-              </div>
-              <span class="price">$23.7 
-                <del>$28</del>
+        <div>
+          <dl class="section-foods" v-for="count in 3" :key="count">
+            <dt class="section-title">
+              <strong>热销</strong>
+              <small class="ellipsis">ii萨基时间啊时间啊时间</small>
+            </dt>
+            <dd class="seciton-food-row" v-for="co in 3" :key="co">
+              <span class="food-pic">
+                <img src="../../../images/shop_chi.png" alt />
               </span>
-              <div class="add-cart">
-              </div>
-            </section>
-          </dd>
-         
-        </dl>
-
+              <section class="food-des">
+                <h2 class="ellipsis">三文鱼一斤</h2>
+                <p class="ellipsis">还有一份洒洒水上的</p>
+                <p class="ellipsis">月瘦2222 好评率20%</p>
+                <div class="discount">
+                  <span>6.9折</span>
+                </div>
+                <span class="price"
+                  >$23.7
+                  <del>$28</del>
+                </span>
+                <div class="add-cart"></div>
+              </section>
+            </dd>
+          </dl>
+        </div>
       </div>
     </section>
     <shop-car></shop-car>
@@ -96,8 +96,8 @@ export default {
       foodsScroll: null,
       scrollY: 0,
       scrollData: null,
-      foodsHeights:[],
-      lists:[1,2,3,4]
+      foodsHeights: [],
+      foodsScrollY:0
     };
   },
 
@@ -107,42 +107,47 @@ export default {
 
   components: {
     BScroll,
-    ShopCar
+    ShopCar,
   },
 
   methods: {
-    /** 
-     * 1.初始化滚动视图  2.获取视图数据
-     */
+    /** 1.初始化滚动视图  2.获取视图数据*/
     initScroll() {
       this.menuScroll = new BScroll(this.$refs.menuScroll, {
-        click: true
+        click: true,
       });
       this.foodsScroll = new BScroll(this.$refs.foodsScroll, {
         click: true,
-        probeType: 3
-      });
-      //
-      this.foodsScroll.on('scroll',pos => {
-        console.log(this.foodsScroll.hasVerticalScroll);//false
-        console.log(this.foodsScroll.scrollerHeight);//575
-        console.log(this.foodsScroll.wrapperHeight);//
-        console.log(Math.abs(Math.round(pos.y))); 
+        probeType: 3,
       });
 
-      shopOrderTest().then(res => {
+      /**监听当前滚动位置 */
+      this.foodsScroll.on("scroll", (pos) => {
+        this.foodsScrollY = Math.abs(Math.round(pos.y));
+      });
+
+      /** TODO 初步请求本地数据 */
+      shopOrderTest().then((res) => {
         this.scrollData = res.data;
-        //处理高度
       });
     },
 
-    /**
-     * 菜单/食物联动切换
-     */
-    selectMenu(index){
-      this.foodsScroll.scrollTo(0,foodsHeights[index]);
+    /**计算菜单高度集合 */
+    calculateFoodsHeight(){
+      this.foodsHeights = [];
+      this.foodsScroll.getElementsByClassName("section-foods");
+      //add height
+      for (let i = 0; i < menus.length; i++) {
+        
+      }
+      this.foodsHeights.push();
     },
-  }
+
+    /** 菜单/食物联动切换 */
+    selectMenu(index) {
+      this.foodsScroll.scrollTo(0, foodsHeights[index]);
+    },
+  },
 };
 </script>
 
@@ -209,14 +214,13 @@ export default {
 
 .shop-scroll-view {
   position: sticky;
-  top:40px;
-  height:calc(100vh - 40px);
+  top: 40px;
+  height: calc(100vh - 40px);
   display: flex;
   background-color: $fc;
   text-align: center;
   .left-menu-wrap {
     flex: 0.2;
-    //可滚动的前提必须设置固定wrapHeight,不能高于scrollHeight
     height: calc(100% - 55px);
     background-color: $ic;
     li {
@@ -227,81 +231,78 @@ export default {
   .right-foods-wrap {
     overflow-y: hidden;
     flex: 0.8;
-    height: 100%;
-    // height: calc(100% - 55px);
-    // height: 500px;
-    padding-bottom: 40px;
+    height: calc(100% - 55px);
   }
   .section-foods {
-      .section-title {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 10px;
-        strong small {
-          overflow: hidden;
-          text-overflow: ellipsis;
+    .section-title {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px;
+      strong small {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      small {
+        margin-left: 5px;
+        color: #999;
+      }
+    }
+    .seciton-food-row {
+      display: flex;
+      align-items: flex-start;
+      height: 27.3333vw;
+      margin: 0 10px 6px 5px;
+      .food-pic {
+        img {
+          border-radius: 3px;
+          @include wh(25.3333vw, 25.3333vw);
         }
-        small {
-          margin-left: 5px;
+      }
+      .food-des {
+        height: 100%;
+        padding-left: 8px;
+        text-align: left;
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        p {
+          margin-top: 3px;
+          display: block;
           color: #999;
+          font-size: 9px;
         }
-      }
-      .seciton-food-row {
-        display: flex;
-        align-items: flex-start;
-        height: 27.3333vw;
-        margin: 0 10px 6px 5px;
-        .food-pic {
-          img {
-            border-radius: 3px;
-            @include wh(25.3333vw, 25.3333vw);
+        .discount {
+          margin-top: 3px;
+          span {
+            font-size: 8px;
+            border: 1px solid #eb6551;
+            color: #eb6551;
+            padding: 0 2px;
           }
         }
-        .food-des {
-          height: 100%;
-          padding-left: 8px;
-          text-align: left;
-          position: relative;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          p {
-            margin-top: 3px;
-            display: block;
+        .price {
+          position: absolute;
+          bottom: 2px;
+          display: block;
+          color: rgb(255, 83, 57);
+          font-size: 18px;
+          del {
             color: #999;
-            font-size: 9px;
-          }
-          .discount {
-            margin-top: 3px;
-            span {
-              font-size: 8px;
-              border: 1px solid #eb6551;
-              color: #eb6551;
-              padding: 0 2px;
-            }
-          }
-          .price {
-            position: absolute;
-            bottom: 2px;
-            display: block;
-            color: rgb(255, 83, 57);
-            font-size: 18px;
-            del {
-              color: #999;
-              margin-left: 6px;
-              font-size: 12px;
-            }
-          }
-          .add-cart {
-            position: absolute;
-            right: 2px;
-            bottom: 2px;
-            @include wh(20px, 20px);
-            background-color: red;
+            margin-left: 6px;
+            font-size: 12px;
           }
         }
+        .add-cart {
+          position: absolute;
+          right: 2px;
+          bottom: 2px;
+          @include wh(20px, 20px);
+          background-color: red;
+        }
       }
+    }
   }
 }
 </style>
